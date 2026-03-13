@@ -1,3 +1,6 @@
-# My test page
+---
+layout: home
+title: Home
+---
 
-This site is running on **GitHub Pages with Jekyll**.
+Welcome to my projects.
