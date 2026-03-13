@@ -1,2 +1,6 @@
-title: Will's Test Site
-theme: jekyll-theme-cayman
+title: Will's AI Projects
+description: Experiments and tools
+remote_theme: mmistakes/minimal-mistakes
+
+plugins:
+- jekyll-remote-theme
