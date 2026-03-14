@@ -9,12 +9,20 @@ title: Signal Ledger
 {% assign launch_posts = site.posts | where: "category", "Launch" %}
 
 <section class="hero">
+  <div class="hero-image">
+    <div class="hero-image-badge">Weekly Edition</div>
+    <div class="hero-image-copy">
+      <p class="eyebrow">Front page feature</p>
+      <h2>Hunter Green Dispatch</h2>
+      <p>A cleaner white canvas, bolder imagery, and a tighter center column for a fuller magazine layout.</p>
+    </div>
+  </div>
   <div class="hero-copy">
     <p class="eyebrow">Satire-ready magazine layout</p>
-    <h1>A bold front page with a headline desk, category rails, and a center spotlight panel.</h1>
+    <h1>A bold front page with a headline desk, story images, and a center spotlight that actually feels filled in.</h1>
     <p class="hero-text">
-      This version leans further into a magazine structure: large lead story, strong section hierarchy,
-      a busier sidebar, and room for lots of posts without the homepage feeling flat.
+      This version leans further into a magazine structure: white paper background, hunter green accents,
+      a stronger masthead image, and more visual weight across the full homepage.
     </p>
     <div class="hero-actions">
       <a class="button button-primary" href="#front-page">Open the front page</a>
@@ -53,6 +61,7 @@ title: Signal Ledger
   <div class="lead-column">
     {% if featured %}
     <article class="lead-story">
+      <div class="story-image story-image-lead"></div>
       <p class="card-kicker">{{ featured.category | default: "Top Story" }}</p>
       <h2><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
       <p class="lead-summary">{{ featured.excerpt | strip_html | truncate: 220 }}</p>
@@ -66,6 +75,7 @@ title: Signal Ledger
     <div class="mini-stack">
       {% for post in latest_posts offset:1 limit:2 %}
       <article class="mini-card">
+        <div class="story-image story-image-small {% cycle 'story-image-design', 'story-image-studio' %}"></div>
         <p class="card-kicker">{{ post.category | default: "Update" }}</p>
         <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
         <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
@@ -83,6 +93,7 @@ title: Signal Ledger
       <div class="spotlight-slider">
         {% for post in design_posts limit:3 %}
         <article class="spotlight-card">
+          <div class="story-image story-image-medium story-image-design"></div>
           <p class="card-kicker">{{ post.category }}</p>
           <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
           <p>{{ post.excerpt | strip_html | truncate: 150 }}</p>
@@ -93,6 +104,25 @@ title: Signal Ledger
       <p class="spotlight-note">
         This panel scrolls horizontally, so you can dedicate it to satire, politics, reviews, or any category you want to spotlight.
       </p>
+    </section>
+
+    <section class="bulletin-panel">
+      <div class="section-heading">
+        <p class="section-label">Middle column</p>
+        <h2>News bulletin</h2>
+      </div>
+      <div class="bulletin-list">
+        {% for post in latest_posts offset:3 limit:3 %}
+        <article class="bulletin-item">
+          <div class="bulletin-marker"></div>
+          <div>
+            <p class="card-kicker">{{ post.category | default: "Update" }}</p>
+            <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+            <p>{{ post.excerpt | strip_html | truncate: 105 }}</p>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
     </section>
   </div>
 
@@ -133,6 +163,7 @@ title: Signal Ledger
     <div class="section-story-grid">
       {% for post in design_posts limit:2 %}
       <article class="article-card">
+        <div class="story-image story-image-medium story-image-design"></div>
         <p class="card-kicker">{{ post.category }}</p>
         <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
         <p>{{ post.excerpt | strip_html | truncate: 140 }}</p>
@@ -153,6 +184,7 @@ title: Signal Ledger
     <div class="section-story-grid">
       {% for post in studio_posts limit:2 %}
       <article class="article-card">
+        <div class="story-image story-image-medium story-image-studio"></div>
         <p class="card-kicker">{{ post.category }}</p>
         <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
         <p>{{ post.excerpt | strip_html | truncate: 140 }}</p>
@@ -173,6 +205,7 @@ title: Signal Ledger
     <div class="section-story-grid">
       {% for post in launch_posts limit:2 %}
       <article class="article-card">
+        <div class="story-image story-image-medium story-image-launch"></div>
         <p class="card-kicker">{{ post.category }}</p>
         <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
         <p>{{ post.excerpt | strip_html | truncate: 140 }}</p>

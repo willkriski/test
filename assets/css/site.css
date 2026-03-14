@@ -1,13 +1,13 @@
 :root {
-  --bg: #f4efe6;
-  --paper: #fbf8f2;
-  --ink: #181613;
-  --muted: #6d655b;
-  --line: rgba(24, 22, 19, 0.12);
-  --accent: #b7472a;
-  --accent-dark: #8a311b;
-  --accent-soft: #ead4c3;
-  --shadow: 0 22px 60px rgba(31, 20, 14, 0.10);
+  --bg: #f8f9f5;
+  --paper: #ffffff;
+  --ink: #122018;
+  --muted: #526156;
+  --line: rgba(18, 32, 24, 0.12);
+  --accent: #24553a;
+  --accent-dark: #173b28;
+  --accent-soft: #dce9df;
+  --shadow: 0 22px 60px rgba(20, 44, 31, 0.08);
 }
 
 * {
@@ -22,8 +22,8 @@ body {
   margin: 0;
   color: var(--ink);
   background:
-    radial-gradient(circle at top left, rgba(183, 71, 42, 0.16), transparent 28%),
-    linear-gradient(180deg, #f7f2e8 0%, #f2ede4 100%);
+    radial-gradient(circle at top left, rgba(36, 85, 58, 0.10), transparent 24%),
+    linear-gradient(180deg, #fbfcfa 0%, #f4f7f2 100%);
   font-family: "Manrope", sans-serif;
 }
 
@@ -127,17 +127,55 @@ h3 {
 .sidebar-card,
 .archive-item,
 .post-layout {
-  background: rgba(251, 248, 242, 0.88);
+  background: rgba(255, 255, 255, 0.94);
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
 }
 
 .hero {
   display: grid;
-  grid-template-columns: 2.1fr 1fr;
+  grid-template-columns: 1.15fr 1fr 0.8fr;
   gap: 1.5rem;
   padding: 2rem;
   border-radius: 36px;
+}
+
+.hero-image {
+  min-height: 420px;
+  border-radius: 30px;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #f5fbf6;
+  background:
+    linear-gradient(180deg, rgba(12, 28, 18, 0.15), rgba(12, 28, 18, 0.82)),
+    radial-gradient(circle at top left, rgba(212, 235, 219, 0.34), transparent 38%),
+    linear-gradient(135deg, #2d6947 0%, #173b28 55%, #0f281b 100%);
+}
+
+.hero-image-badge {
+  align-self: flex-start;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.hero-image-copy h2 {
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  line-height: 0.95;
+  margin: 0.4rem 0 0.8rem;
+}
+
+.hero-image-copy p {
+  max-width: 30ch;
+  margin: 0;
+  color: rgba(245, 251, 246, 0.84);
 }
 
 .eyebrow,
@@ -196,7 +234,7 @@ h3 {
 .sidebar-card {
   border-radius: 28px;
   padding: 1.4rem;
-  background: linear-gradient(180deg, rgba(234, 212, 195, 0.5), rgba(251, 248, 242, 0.8));
+  background: linear-gradient(180deg, rgba(220, 233, 223, 0.7), rgba(255, 255, 255, 0.98));
 }
 
 .panel-list,
@@ -294,7 +332,7 @@ h3 {
   margin-top: 1.25rem;
   padding: 0.95rem 1.1rem;
   border-radius: 999px;
-  background: rgba(251, 248, 242, 0.75);
+  background: rgba(255, 255, 255, 0.96);
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
 }
@@ -302,7 +340,7 @@ h3 {
 .category-strip a {
   padding: 0.55rem 0.9rem;
   border-radius: 999px;
-  background: rgba(234, 212, 195, 0.42);
+  background: rgba(220, 233, 223, 0.7);
   color: var(--accent-dark);
   font-weight: 700;
   font-size: 0.92rem;
@@ -310,7 +348,7 @@ h3 {
 
 .front-page-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 0.78fr;
+  grid-template-columns: 1.08fr 1.02fr 0.82fr;
   gap: 1.4rem;
   margin-top: 2rem;
   align-items: start;
@@ -318,8 +356,9 @@ h3 {
 
 .lead-story,
 .mini-card,
-.spotlight-panel {
-  background: rgba(251, 248, 242, 0.88);
+.spotlight-panel,
+.bulletin-panel {
+  background: rgba(255, 255, 255, 0.96);
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
 }
@@ -352,17 +391,66 @@ h3 {
   padding: 1.2rem 1.3rem;
 }
 
+.story-image {
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(18, 32, 24, 0.08);
+  background-size: cover;
+  background-position: center;
+}
+
+.story-image-lead {
+  height: 240px;
+}
+
+.story-image-medium {
+  height: 150px;
+}
+
+.story-image-small {
+  height: 120px;
+}
+
+.story-image-lead,
+.story-image-launch {
+  background:
+    linear-gradient(180deg, rgba(17, 44, 28, 0.06), rgba(17, 44, 28, 0.52)),
+    radial-gradient(circle at 20% 20%, rgba(236, 245, 239, 0.86), transparent 24%),
+    linear-gradient(135deg, #8fb59a 0%, #3f7a56 42%, #173b28 100%);
+}
+
+.story-image-design {
+  background:
+    linear-gradient(180deg, rgba(17, 44, 28, 0.08), rgba(17, 44, 28, 0.38)),
+    linear-gradient(45deg, rgba(255,255,255,0.44) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.22) 50%, rgba(255,255,255,0.22) 75%, transparent 75%, transparent),
+    linear-gradient(135deg, #dce9df 0%, #76a187 45%, #24553a 100%);
+  background-size: auto, 28px 28px, auto;
+}
+
+.story-image-studio {
+  background:
+    linear-gradient(180deg, rgba(17, 44, 28, 0.10), rgba(17, 44, 28, 0.48)),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.56), transparent 20%),
+    linear-gradient(135deg, #bed3c4 0%, #5d8f71 48%, #173b28 100%);
+}
+
 .mini-card h3 {
   font-size: 1.35rem;
   margin: 0.3rem 0 0.6rem;
+}
+
+.spotlight-column {
+  display: grid;
+  gap: 1rem;
 }
 
 .spotlight-panel {
   border-radius: 34px;
   padding: 1.5rem;
   background:
-    linear-gradient(180deg, rgba(234, 212, 195, 0.42), rgba(251, 248, 242, 0.94)),
-    rgba(251, 248, 242, 0.88);
+    linear-gradient(180deg, rgba(220, 233, 223, 0.55), rgba(255, 255, 255, 0.98)),
+    rgba(255, 255, 255, 0.94);
 }
 
 .spotlight-slider {
@@ -379,8 +467,8 @@ h3 {
   scroll-snap-align: start;
   border-radius: 28px;
   padding: 1.35rem;
-  background: rgba(255, 250, 243, 0.88);
-  border: 1px solid rgba(24, 22, 19, 0.08);
+  background: rgba(249, 252, 249, 0.96);
+  border: 1px solid rgba(18, 32, 24, 0.08);
 }
 
 .spotlight-card h3 {
@@ -391,6 +479,48 @@ h3 {
 .spotlight-note {
   margin: 1rem 0 0;
   color: var(--muted);
+}
+
+.bulletin-panel {
+  border-radius: 34px;
+  padding: 1.4rem;
+}
+
+.bulletin-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.bulletin-item {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  gap: 0.85rem;
+  align-items: start;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(18, 32, 24, 0.08);
+}
+
+.bulletin-item:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.bulletin-item h3 {
+  font-size: 1.18rem;
+  margin: 0.2rem 0 0.45rem;
+}
+
+.bulletin-item p:last-child {
+  margin: 0;
+}
+
+.bulletin-marker {
+  width: 12px;
+  height: 12px;
+  margin-top: 0.35rem;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 5px rgba(36, 85, 58, 0.12);
 }
 
 .sidebar-magazine {
@@ -443,7 +573,7 @@ h3 {
 }
 
 .article-card {
-  background: rgba(251, 248, 242, 0.88);
+  background: rgba(255, 255, 255, 0.96);
   border: 1px solid var(--line);
 }
 
