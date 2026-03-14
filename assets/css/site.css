@@ -132,50 +132,42 @@ h3 {
   box-shadow: var(--shadow);
 }
 
-.hero {
-  display: grid;
-  grid-template-columns: 1.15fr 1fr 0.8fr;
-  gap: 1.5rem;
-  padding: 2rem;
+.masthead-banner {
+  min-height: 430px;
+  margin-top: 0.5rem;
   border-radius: 36px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  background:
+    linear-gradient(180deg, rgba(9, 22, 14, 0.12), rgba(9, 22, 14, 0.82)),
+    radial-gradient(circle at 18% 20%, rgba(228, 241, 232, 0.45), transparent 18%),
+    radial-gradient(circle at 78% 28%, rgba(255, 255, 255, 0.20), transparent 14%),
+    linear-gradient(125deg, #234f37 0%, #173b28 48%, #10281b 100%);
 }
 
-.hero-image {
-  min-height: 420px;
-  border-radius: 30px;
-  padding: 1.4rem;
+.masthead-overlay {
+  min-height: 430px;
+  padding: 2.25rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  color: #f5fbf6;
-  background:
-    linear-gradient(180deg, rgba(12, 28, 18, 0.15), rgba(12, 28, 18, 0.82)),
-    radial-gradient(circle at top left, rgba(212, 235, 219, 0.34), transparent 38%),
-    linear-gradient(135deg, #2d6947 0%, #173b28 55%, #0f281b 100%);
+  justify-content: flex-end;
+  color: #f7fcf8;
 }
 
-.hero-image-badge {
-  align-self: flex-start;
-  padding: 0.45rem 0.8rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  font-size: 0.8rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
+.masthead-overlay .eyebrow {
+  color: rgba(247, 252, 248, 0.82);
 }
 
-.hero-image-copy h2 {
-  font-size: clamp(2rem, 4vw, 3.35rem);
-  line-height: 0.95;
-  margin: 0.4rem 0 0.8rem;
+.masthead-overlay h1 {
+  font-size: clamp(3rem, 8vw, 5.8rem);
+  line-height: 0.92;
+  margin: 0.35rem 0 0.8rem;
 }
 
-.hero-image-copy p {
-  max-width: 30ch;
-  margin: 0;
-  color: rgba(245, 251, 246, 0.84);
+.masthead-overlay .hero-text {
+  max-width: 36rem;
+  color: rgba(247, 252, 248, 0.84);
 }
 
 .eyebrow,
@@ -632,7 +624,6 @@ h3 {
 }
 
 @media (max-width: 900px) {
-  .hero,
   .front-page-grid,
   .content-grid,
   .archive-item,
@@ -668,5 +659,10 @@ h3 {
 
   .category-strip {
     border-radius: 24px;
+  }
+
+  .masthead-banner,
+  .masthead-overlay {
+    min-height: 320px;
   }
 }

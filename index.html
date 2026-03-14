@@ -8,45 +8,12 @@ title: Signal Ledger
 {% assign studio_posts = site.posts | where: "category", "Studio" %}
 {% assign launch_posts = site.posts | where: "category", "Launch" %}
 
-<section class="hero">
-  <div class="hero-image">
-    <div class="hero-image-badge">Weekly Edition</div>
-    <div class="hero-image-copy">
-      <p class="eyebrow">Front page feature</p>
-      <h2>Hunter Green Dispatch</h2>
-      <p>A cleaner white canvas, bolder imagery, and a tighter center column for a fuller magazine layout.</p>
-    </div>
+<section class="masthead-banner">
+  <div class="masthead-overlay">
+    <p class="eyebrow">Weekly Edition</p>
+    <h1>Hunter Green Dispatch</h1>
+    <p class="hero-text">A clean magazine-style front page with strong imagery, tighter columns, and room for lots of articles.</p>
   </div>
-  <div class="hero-copy">
-    <p class="eyebrow">Satire-ready magazine layout</p>
-    <h1>A bold front page with a headline desk, story images, and a center spotlight that actually feels filled in.</h1>
-    <p class="hero-text">
-      This version leans further into a magazine structure: white paper background, hunter green accents,
-      a stronger masthead image, and more visual weight across the full homepage.
-    </p>
-    <div class="hero-actions">
-      <a class="button button-primary" href="#front-page">Open the front page</a>
-      <a class="button button-secondary" href="{{ '/news/' | relative_url }}">See all stories</a>
-    </div>
-  </div>
-  <aside class="hero-panel">
-    <p class="panel-label">Built for sections</p>
-    <ul class="panel-list">
-      <li>Top navigation with a magazine feel</li>
-      <li>Spotlight area for one category or campaign</li>
-      <li>Sidebar widgets and stacked story blocks</li>
-    </ul>
-    <div class="stat-grid">
-      <div>
-        <span class="stat-value">{{ site.posts | size }}</span>
-        <span class="stat-label">Stories on deck</span>
-      </div>
-      <div>
-        <span class="stat-value">3</span>
-        <span class="stat-label">Starter categories</span>
-      </div>
-    </div>
-  </aside>
 </section>
 
 <section class="category-strip" aria-label="Story categories">
