@@ -133,7 +133,7 @@ h3 {
 }
 
 .masthead-banner {
-  min-height: 430px;
+  min-height: 180px;
   margin-top: 0.5rem;
   border-radius: 36px;
   overflow: hidden;
@@ -141,14 +141,15 @@ h3 {
   box-shadow: var(--shadow);
   background:
     linear-gradient(180deg, rgba(9, 22, 14, 0.12), rgba(9, 22, 14, 0.82)),
-    radial-gradient(circle at 18% 20%, rgba(228, 241, 232, 0.45), transparent 18%),
-    radial-gradient(circle at 78% 28%, rgba(255, 255, 255, 0.20), transparent 14%),
+    url("../images/masthead-banner.svg"),
     linear-gradient(125deg, #234f37 0%, #173b28 48%, #10281b 100%);
+  background-size: cover, cover, auto;
+  background-position: center, center, center;
 }
 
 .masthead-overlay {
-  min-height: 430px;
-  padding: 2.25rem;
+  min-height: 180px;
+  padding: 1.5rem 1.8rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -160,13 +161,15 @@ h3 {
 }
 
 .masthead-overlay h1 {
-  font-size: clamp(3rem, 8vw, 5.8rem);
-  line-height: 0.92;
-  margin: 0.35rem 0 0.8rem;
+  font-size: clamp(2rem, 5vw, 3.7rem);
+  line-height: 0.95;
+  margin: 0.15rem 0 0.45rem;
 }
 
 .masthead-overlay .hero-text {
   max-width: 36rem;
+  margin: 0;
+  font-size: 1rem;
   color: rgba(247, 252, 248, 0.84);
 }
 
@@ -393,7 +396,7 @@ h3 {
 }
 
 .story-image-lead {
-  height: 240px;
+  height: 220px;
 }
 
 .story-image-medium {
@@ -406,25 +409,19 @@ h3 {
 
 .story-image-lead,
 .story-image-launch {
-  background:
-    linear-gradient(180deg, rgba(17, 44, 28, 0.06), rgba(17, 44, 28, 0.52)),
-    radial-gradient(circle at 20% 20%, rgba(236, 245, 239, 0.86), transparent 24%),
-    linear-gradient(135deg, #8fb59a 0%, #3f7a56 42%, #173b28 100%);
+  background-image: url("../images/launch-story.svg");
 }
 
 .story-image-design {
-  background:
-    linear-gradient(180deg, rgba(17, 44, 28, 0.08), rgba(17, 44, 28, 0.38)),
-    linear-gradient(45deg, rgba(255,255,255,0.44) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.22) 50%, rgba(255,255,255,0.22) 75%, transparent 75%, transparent),
-    linear-gradient(135deg, #dce9df 0%, #76a187 45%, #24553a 100%);
-  background-size: auto, 28px 28px, auto;
+  background-image: url("../images/design-story.svg");
 }
 
 .story-image-studio {
-  background:
-    linear-gradient(180deg, rgba(17, 44, 28, 0.10), rgba(17, 44, 28, 0.48)),
-    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.56), transparent 20%),
-    linear-gradient(135deg, #bed3c4 0%, #5d8f71 48%, #173b28 100%);
+  background-image: url("../images/studio-story.svg");
+}
+
+.story-image-lead {
+  background-image: url("../images/lead-story.svg");
 }
 
 .mini-card h3 {
@@ -663,6 +660,6 @@ h3 {
 
   .masthead-banner,
   .masthead-overlay {
-    min-height: 320px;
+    min-height: 150px;
   }
 }
