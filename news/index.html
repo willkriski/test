@@ -1,0 +1,25 @@
+---
+layout: default
+title: News Archive
+---
+<section class="archive-header">
+  <p class="eyebrow">Archive</p>
+  <h1>All stories</h1>
+  <p class="hero-text">A running collection of updates, features, and behind-the-scenes notes.</p>
+</section>
+
+<section class="archive-list">
+  {% for post in site.posts %}
+  <article class="archive-item">
+    <div>
+      <p class="card-kicker">{{ post.category | default: "Update" }}</p>
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <p>{{ post.excerpt | strip_html | truncate: 180 }}</p>
+    </div>
+    <div class="archive-meta">
+      <span>{{ post.date | date: "%B %d, %Y" }}</span>
+      <a href="{{ post.url | relative_url }}">Read article</a>
+    </div>
+  </article>
+  {% endfor %}
+</section>

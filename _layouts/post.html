@@ -1,0 +1,44 @@
+---
+layout: default
+---
+<article class="post-layout">
+  <div class="post-header">
+    <p class="card-kicker">{{ page.category | default: "Article" }}</p>
+    <h1>{{ page.title }}</h1>
+    <div class="post-meta">
+      <span>{{ page.date | date: "%B %d, %Y" }}</span>
+      {% if page.author %}
+      <span>By {{ page.author }}</span>
+      {% endif %}
+    </div>
+    {% if page.deck %}
+    <p class="post-deck">{{ page.deck }}</p>
+    {% endif %}
+  </div>
+
+  <div class="post-body">
+    {{ content }}
+  </div>
+
+  <section class="related-posts">
+    <div class="section-heading">
+      <p class="section-label">Continue reading</p>
+      <h2>More from the desk</h2>
+    </div>
+    <div class="article-grid">
+      {% for post in site.posts limit:3 %}
+        {% unless post.url == page.url %}
+        <article class="article-card">
+          <p class="card-kicker">{{ post.category | default: "Update" }}</p>
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
+          <div class="card-footer">
+            <span>{{ post.date | date: "%b %d" }}</span>
+            <a href="{{ post.url | relative_url }}">Read more</a>
+          </div>
+        </article>
+        {% endunless %}
+      {% endfor %}
+    </div>
+  </section>
+</article>

@@ -1,3 +1,22 @@
-title: Will's AI Projects
-description: Experiments and tools
-theme: minimal-mistakes-jekyll
+title: Signal Ledger
+description: A sharp Jekyll news template for projects, experiments, and product updates.
+url: "https://willkriski.github.io"
+baseurl: "/test"
+markdown: kramdown
+permalink: /news/:title/
+
+collections:
+  posts:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
