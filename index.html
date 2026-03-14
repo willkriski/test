@@ -3,71 +3,137 @@ layout: default
 title: Signal Ledger
 ---
 {% assign featured = site.posts.first %}
-{% assign latest_posts = site.posts | slice: 1, 6 %}
+{% assign latest_posts = site.posts | slice: 0, 8 %}
+{% assign design_posts = site.posts | where: "category", "Design" %}
+{% assign studio_posts = site.posts | where: "category", "Studio" %}
+{% assign launch_posts = site.posts | where: "category", "Launch" %}
 
 <section class="hero">
   <div class="hero-copy">
-    <p class="eyebrow">Independent tech journal</p>
-    <h1>Project launches, AI notes, and development stories in a newsroom format.</h1>
+    <p class="eyebrow">Satire-ready magazine layout</p>
+    <h1>A bold front page with a headline desk, category rails, and a center spotlight panel.</h1>
     <p class="hero-text">
-      Signal Ledger is a polished Jekyll template designed for GitHub Pages. Use it to publish updates,
-      tutorials, changelogs, and essays with the feel of a modern product magazine.
+      This version leans further into a magazine structure: large lead story, strong section hierarchy,
+      a busier sidebar, and room for lots of posts without the homepage feeling flat.
     </p>
     <div class="hero-actions">
-      <a class="button button-primary" href="#latest">Read the latest</a>
-      <a class="button button-secondary" href="{{ '/news/' | relative_url }}">Browse archives</a>
+      <a class="button button-primary" href="#front-page">Open the front page</a>
+      <a class="button button-secondary" href="{{ '/news/' | relative_url }}">See all stories</a>
     </div>
   </div>
   <aside class="hero-panel">
-    <p class="panel-label">In this issue</p>
+    <p class="panel-label">Built for sections</p>
     <ul class="panel-list">
-      <li>Clean header navigation for GitHub Pages</li>
-      <li>Featured lead story plus article cards</li>
-      <li>Reusable post template for future updates</li>
+      <li>Top navigation with a magazine feel</li>
+      <li>Spotlight area for one category or campaign</li>
+      <li>Sidebar widgets and stacked story blocks</li>
     </ul>
     <div class="stat-grid">
       <div>
         <span class="stat-value">{{ site.posts | size }}</span>
-        <span class="stat-label">Sample stories</span>
+        <span class="stat-label">Stories on deck</span>
       </div>
       <div>
-        <span class="stat-value">Jekyll</span>
-        <span class="stat-label">Static workflow</span>
+        <span class="stat-value">3</span>
+        <span class="stat-label">Starter categories</span>
       </div>
     </div>
   </aside>
 </section>
 
-{% if featured %}
-<section class="feature-story">
-  <div class="section-heading">
-    <p class="section-label">Featured story</p>
-    <h2>Top story</h2>
-  </div>
-  <article class="feature-card">
-    <div class="feature-meta">
-      <span>{{ featured.date | date: "%B %d, %Y" }}</span>
-      {% if featured.category %}
-      <span>{{ featured.category }}</span>
-      {% endif %}
-    </div>
-    <h3><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h3>
-    <p>{{ featured.excerpt | strip_html | truncate: 210 }}</p>
-    <a class="text-link" href="{{ featured.url | relative_url }}">Open the story</a>
-  </article>
+<section class="category-strip" aria-label="Story categories">
+  <a href="#spotlight">Spotlight</a>
+  <a href="#latest">Latest</a>
+  <a href="#design">Design</a>
+  <a href="#studio">Studio</a>
+  <a href="#launch">Launch</a>
 </section>
-{% endif %}
 
-<section class="content-grid" id="latest">
-  <div class="main-column">
-    <div class="section-heading">
-      <p class="section-label">Latest dispatches</p>
-      <h2>Recent articles</h2>
-    </div>
-    <div class="article-grid">
-      {% for post in latest_posts %}
-      <article class="article-card">
+<section class="front-page-grid" id="front-page">
+  <div class="lead-column">
+    {% if featured %}
+    <article class="lead-story">
+      <p class="card-kicker">{{ featured.category | default: "Top Story" }}</p>
+      <h2><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
+      <p class="lead-summary">{{ featured.excerpt | strip_html | truncate: 220 }}</p>
+      <div class="card-footer">
+        <span>{{ featured.date | date: "%B %d, %Y" }}</span>
+        <a href="{{ featured.url | relative_url }}">Read the cover story</a>
+      </div>
+    </article>
+    {% endif %}
+
+    <div class="mini-stack">
+      {% for post in latest_posts offset:1 limit:2 %}
+      <article class="mini-card">
         <p class="card-kicker">{{ post.category | default: "Update" }}</p>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="spotlight-column" id="spotlight">
+    <section class="spotlight-panel">
+      <div class="section-heading">
+        <p class="section-label">Center spotlight</p>
+        <h2>Design desk</h2>
+      </div>
+      <div class="spotlight-slider">
+        {% for post in design_posts limit:3 %}
+        <article class="spotlight-card">
+          <p class="card-kicker">{{ post.category }}</p>
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <p>{{ post.excerpt | strip_html | truncate: 150 }}</p>
+          <a class="text-link" href="{{ post.url | relative_url }}">Open feature</a>
+        </article>
+        {% endfor %}
+      </div>
+      <p class="spotlight-note">
+        This panel scrolls horizontally, so you can dedicate it to satire, politics, reviews, or any category you want to spotlight.
+      </p>
+    </section>
+  </div>
+
+  <aside class="sidebar sidebar-magazine">
+    <div class="sidebar-card">
+      <p class="section-label">From the editor</p>
+      <h3>WordPress-like structure, Jekyll workflow</h3>
+      <p>
+        You still publish with Markdown files, but the homepage behaves more like a theme-driven magazine front page.
+      </p>
+    </div>
+    <div class="sidebar-card">
+      <p class="section-label">Popular sections</p>
+      <ul class="topic-list">
+        <li>Design and layout experiments</li>
+        <li>Studio notes and process pieces</li>
+        <li>Launch stories and announcements</li>
+      </ul>
+    </div>
+    <div class="sidebar-card compact-list">
+      <p class="section-label">Recent links</p>
+      {% for post in latest_posts limit:4 %}
+      <a class="compact-link" href="{{ post.url | relative_url }}">
+        <strong>{{ post.title }}</strong>
+        <span>{{ post.date | date: "%b %d" }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </aside>
+</section>
+
+<section class="magazine-sections" id="latest">
+  <div class="section-block" id="design">
+    <div class="section-heading">
+      <p class="section-label">Section</p>
+      <h2>Design</h2>
+    </div>
+    <div class="section-story-grid">
+      {% for post in design_posts limit:2 %}
+      <article class="article-card">
+        <p class="card-kicker">{{ post.category }}</p>
         <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
         <p>{{ post.excerpt | strip_html | truncate: 140 }}</p>
         <div class="card-footer">
@@ -79,22 +145,43 @@ title: Signal Ledger
     </div>
   </div>
 
-  <aside class="sidebar">
-    <div class="sidebar-card">
-      <p class="section-label">Editor’s note</p>
-      <h3>Built for simple publishing</h3>
-      <p>
-        Add a new file in <code>_posts</code>, write Markdown, and the homepage updates automatically.
-      </p>
+  <div class="section-block" id="studio">
+    <div class="section-heading">
+      <p class="section-label">Section</p>
+      <h2>Studio</h2>
     </div>
-    <div class="sidebar-card">
-      <p class="section-label">Coverage</p>
-      <ul class="topic-list">
-        <li>AI experiments</li>
-        <li>Build logs</li>
-        <li>Launch notes</li>
-        <li>Product essays</li>
-      </ul>
+    <div class="section-story-grid">
+      {% for post in studio_posts limit:2 %}
+      <article class="article-card">
+        <p class="card-kicker">{{ post.category }}</p>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p>{{ post.excerpt | strip_html | truncate: 140 }}</p>
+        <div class="card-footer">
+          <span>{{ post.date | date: "%b %d" }}</span>
+          <a href="{{ post.url | relative_url }}">Read more</a>
+        </div>
+      </article>
+      {% endfor %}
     </div>
-  </aside>
+  </div>
+
+  <div class="section-block" id="launch">
+    <div class="section-heading">
+      <p class="section-label">Section</p>
+      <h2>Launch</h2>
+    </div>
+    <div class="section-story-grid">
+      {% for post in launch_posts limit:2 %}
+      <article class="article-card">
+        <p class="card-kicker">{{ post.category }}</p>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p>{{ post.excerpt | strip_html | truncate: 140 }}</p>
+        <div class="card-footer">
+          <span>{{ post.date | date: "%b %d" }}</span>
+          <a href="{{ post.url | relative_url }}">Read more</a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
 </section>
